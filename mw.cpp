@@ -38,7 +38,7 @@ void MW::on_start_clicked()
     int i;
 
     //update all devices that we find
-    for(i=1;i<=255;i++)
+    for(i=ui->startAddr->value();i<=ui->endAddr->value();i++)
     {
         qApp->processEvents();//update UI
 
@@ -129,4 +129,16 @@ void MW::on_chooseFWfile_clicked()
     if(fname.isNull()) return;//cancelled
 
     ui->FWFileName->setText(fname);
+}
+
+void MW::on_startAddr_valueChanged(int arg1)
+{
+    if(ui->endAddr->value()<arg1)//dont let end be smaller than start
+        ui->endAddr->setValue(arg1);
+}
+
+void MW::on_endAddr_valueChanged(int arg1)
+{
+    if(ui->startAddr->value()>=arg1)//dont let end be smaller than start
+        ui->startAddr->setValue(arg1);
 }

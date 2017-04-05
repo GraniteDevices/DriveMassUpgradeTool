@@ -29,6 +29,10 @@ private slots:
 
     void on_chooseFWfile_clicked();
 
+    void on_startAddr_valueChanged(int arg1);
+
+    void on_endAddr_valueChanged(int arg1);
+
 private:
     Ui::MW *ui;
     smbus bus;

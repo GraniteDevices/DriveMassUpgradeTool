@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>517</width>
-    <height>774</height>
+    <width>459</width>
+    <height>736</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,16 +45,16 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLineEdit" name="FWFileName">
-         <property name="placeholderText">
-          <string>&lt;empty = skip firmware install&gt;</string>
+        <widget class="QPushButton" name="chooseFWfile">
+         <property name="text">
+          <string>Choose FW file</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="chooseFWfile">
-         <property name="text">
-          <string>Choose FW file</string>
+        <widget class="QLineEdit" name="FWFileName">
+         <property name="placeholderText">
+          <string>&lt;empty = skip firmware install&gt;</string>
          </property>
         </widget>
        </item>
@@ -68,16 +68,16 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLineEdit" name="DRCFileName">
-         <property name="placeholderText">
-          <string>&lt;empty = skip settings install&gt;</string>
+        <widget class="QPushButton" name="chooseSettingsFile">
+         <property name="text">
+          <string>Choose settings file</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="chooseSettingsFile">
-         <property name="text">
-          <string>Choose settings file</string>
+        <widget class="QLineEdit" name="DRCFileName">
+         <property name="placeholderText">
+          <string>&lt;empty = skip settings install&gt;</string>
          </property>
         </widget>
        </item>
@@ -89,20 +89,44 @@
       <property name="title">
        <string>Axis to apply</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QCheckBox" name="checkBox">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>All axis (autodetect)</string>
+          <string>From SM bus address</string>
          </property>
-         <property name="checkable">
-          <bool>true</bool>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="startAddr">
+         <property name="minimum">
+          <number>1</number>
          </property>
-         <property name="checked">
-          <bool>true</bool>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>To SM bus address</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="endAddr">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="value">
+          <number>255</number>
          </property>
         </widget>
        </item>
@@ -142,7 +166,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>517</width>
+     <width>459</width>
      <height>23</height>
     </rect>
    </property>
