@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+include(SimpleMotionV2/SimpleMotionV2.pri)
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = FWMassUploader
@@ -18,3 +20,5 @@ SOURCES += main.cpp\
 HEADERS  += mw.h
 
 FORMS    += mw.ui
+
+RC_FILE = icon/graniteicon.rc
