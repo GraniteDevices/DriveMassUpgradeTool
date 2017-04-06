@@ -2,7 +2,7 @@
 #define MW_H
 
 #include <QMainWindow>
-#include <smdeploymenttool.h>
+#include <devicedeployment.h>
 
 namespace Ui {
 class MW;
@@ -18,8 +18,8 @@ public:
 
     void log(QString msg, int indent=0);
 
-    int upgradeFW( int address );
-    int configure( int address );
+    int installFirmware( int address );
+    int loadConfiguration( int address );
 
 
 private slots:

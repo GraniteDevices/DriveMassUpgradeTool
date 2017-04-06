@@ -46,8 +46,14 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="chooseFWfile">
+         <property name="minimumSize">
+          <size>
+           <width>130</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
-          <string>Choose FW file</string>
+          <string>Choose firmware file</string>
          </property>
         </widget>
        </item>
@@ -69,6 +75,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QPushButton" name="chooseSettingsFile">
+         <property name="minimumSize">
+          <size>
+           <width>130</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Choose settings file</string>
          </property>

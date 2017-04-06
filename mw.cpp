@@ -53,9 +53,9 @@ void MW::on_start_clicked()
             log(QString("Device type nr %1 found at address %2").arg(dtype).arg(i));
 
             if(!ui->FWFileName->text().isEmpty())
-                upgradeFW(i);
+                installFirmware(i);
             if(!ui->DRCFileName->text().isEmpty())
-                configure(i);
+                loadConfiguration(i);
         }
         else
         {
@@ -67,7 +67,7 @@ void MW::on_start_clicked()
     log("Finished");
 }
 
-int MW::upgradeFW( int address )
+int MW::installFirmware( int address )
 {
     log(QString("Installing FW on address %1").arg(address),1);
     FirmwareUploadStatus stat;
@@ -91,9 +91,8 @@ int MW::upgradeFW( int address )
     return 0;
 }
 
-int MW::configure( int address )
+int MW::loadConfiguration( int address )
 {
-    //LOAD PARAMETERS:
     int skipped, errors;
     log(QString("Loading parameters on address %1").arg(address),1);
     LoadConfigurationStatus lcstat=smLoadConfiguration( bus, address, ui->DRCFileName->text().toLatin1(), 0, &skipped, &errors );
@@ -113,8 +112,7 @@ int MW::configure( int address )
 
 void MW::on_chooseSettingsFile_clicked()
 {
-    QString fname=QFileDialog::getOpenFileName(this,tr("Open drive settings file"),
-                                               "",tr("Firmware file (*.drc)"));
+    QString fname=QFileDialog::getOpenFileName(this,tr("Open drive settings file"),"",tr("Firmware file (*.drc)"));
 
     if(fname.isNull()) return;//cancelled
 
@@ -123,8 +121,7 @@ void MW::on_chooseSettingsFile_clicked()
 
 void MW::on_chooseFWfile_clicked()
 {
-    QString fname=QFileDialog::getOpenFileName(this,tr("Open firmware file"),
-                                               "",tr("Firmware file (*.gdf)"));
+    QString fname=QFileDialog::getOpenFileName(this,tr("Open firmware file"),"",tr("Firmware file (*.gdf)"));
 
     if(fname.isNull()) return;//cancelled
 
@@ -139,6 +136,6 @@ void MW::on_startAddr_valueChanged(int arg1)
 
 void MW::on_endAddr_valueChanged(int arg1)
 {
-    if(ui->startAddr->value()>=arg1)//dont let end be smaller than start
+    if(ui->startAddr->value()>=arg1)//dont let start to be larger than end
         ui->startAddr->setValue(arg1);
 }
