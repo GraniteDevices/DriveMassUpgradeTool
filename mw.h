@@ -16,7 +16,7 @@ public:
     explicit MW(QWidget *parent = 0);
     ~MW();
 
-    void log(QString msg, int indent=0);
+    void log(QString msg, int indent=0, bool error=false);
 
     int installFirmware( int address );
     int loadConfiguration( int address );

@@ -7,6 +7,7 @@ MW::MW(QWidget *parent) :
     ui(new Ui::MW)
 {
     ui->setupUi(this);
+    log("App ready");
 }
 
 MW::~MW()
@@ -14,11 +15,16 @@ MW::~MW()
     delete ui;
 }
 
-void MW::log(QString msg, int indent)
+void MW::log(QString msg, int indent, bool error )
 {
     QString space;
+
     for(int i=0;i<indent;i++)
         space+="    ";
+
+    if(error)
+        msg="<b>"+msg+"</b>";
+
     ui->log->append(space+msg);
 }
 
@@ -27,11 +33,12 @@ void MW::on_start_clicked()
     smSetDebugOutput( Low, stdout );//print some info from sm-functions
     smSetTimeout(100);//make it faster by using shorter timeout
 
+
     //OPEN BUS:
     bus=smOpenBus(ui->portName->text().toLatin1());
     if(bus<0)
     {
-        log("Can't open bus");
+        log("Can't open bus",0,true);
         return;
     }
 
@@ -77,7 +84,7 @@ int MW::installFirmware( int address )
 
         if(stat<0)
         {
-            log(QString("FW update failed, FirmwareUploadStatus %1").arg((int)stat),2);
+            log(QString("FW update failed, FirmwareUploadStatus %1").arg((int)stat),2,true);
             return 5;
         }
 
@@ -105,7 +112,7 @@ int MW::loadConfiguration( int address )
     }
     else
     {
-        log("Some errors occurred during parameter setting",2);
+        log("Some errors occurred during parameter setting",2,true);
         return 6;
     }
 }
