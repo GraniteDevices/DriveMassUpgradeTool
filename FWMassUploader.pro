@@ -13,6 +13,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = FWMassUploader
 TEMPLATE = app
 
+win32 {
+    LIBS+=-lws2_32
+}
 
 SOURCES += main.cpp\
         mw.cpp

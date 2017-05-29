@@ -30,6 +30,8 @@ void MW::log(QString msg, int indent, bool error )
 
 void MW::on_start_clicked()
 {
+    ui->start->setEnabled(false);
+
     smSetDebugOutput( Low, stdout );//print some info from sm-functions
     smSetTimeout(100);//make it faster by using shorter timeout
 
@@ -39,6 +41,7 @@ void MW::on_start_clicked()
     if(bus<0)
     {
         log("Can't open bus",0,true);
+        ui->start->setEnabled(true);
         return;
     }
 
@@ -72,6 +75,7 @@ void MW::on_start_clicked()
 
     smCloseBus(bus);
     log("Finished");
+    ui->start->setEnabled(true);
 }
 
 int MW::installFirmware( int address )
