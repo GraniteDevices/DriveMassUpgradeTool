@@ -10,7 +10,7 @@ include(SimpleMotionV2/SimpleMotionV2.pri)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = FWMassUploader
+TARGET = DeploymentTool
 TEMPLATE = app
 
 win32 {
