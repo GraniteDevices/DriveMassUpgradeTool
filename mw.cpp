@@ -7,7 +7,8 @@ MW::MW(QWidget *parent) :
     ui(new Ui::MW)
 {
     ui->setupUi(this);
-    log("App ready");
+    log("Usage: fill in communication port name, select firmware and/or settings file, choose motor drive SimpleMotion bus address range where the files should be loaded, and click Start job.");
+    ui->statusBar->showMessage("Version 1.0.0");
 }
 
 MW::~MW()
