@@ -31,7 +31,7 @@
        <item>
         <widget class="QLineEdit" name="portName">
          <property name="placeholderText">
-          <string>Such as COM6 on Win or /dev/ttyUSB0 on Linux</string>
+          <string>I.e. FTDI0 for all platforms, or serial port name like COM6 on Win or /dev/ttyUSB0 on Linux</string>
          </property>
         </widget>
        </item>

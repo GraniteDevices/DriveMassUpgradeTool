@@ -25,3 +25,7 @@ HEADERS  += mw.h
 FORMS    += mw.ui
 
 RC_FILE = icon/graniteicon.rc
+
+
+macx:QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
+macx:ICON=icon/granity.icns
