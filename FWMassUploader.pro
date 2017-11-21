@@ -13,10 +13,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = DeploymentTool
 TEMPLATE = app
 
-win32 {
-    LIBS+=-lws2_32
-}
-
 SOURCES += main.cpp\
         mw.cpp
 
@@ -29,3 +25,4 @@ RC_FILE = icon/graniteicon.rc
 
 macx:QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
 macx:ICON=icon/granity.icns
+#note to build .dmg on macos, run in the shadow build dir: /Users/tero/softat/5.5/clang_64/bin/macdeployqt DeploymentTool.app -dmg
