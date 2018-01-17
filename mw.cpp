@@ -10,7 +10,7 @@ MW::MW(QWidget *parent) :
     log("About: this app may be used for batch uploading firmware and settings to multiple drives in the SimpleMotion bus. Limitations: uploading firmware with this tool not yet supported on ARGON drives.");
     log("");
     log("Usage: fill in communication port name, select firmware and/or settings file, choose motor drive SimpleMotion bus address range where the files should be loaded, and click Start job.");
-    ui->statusBar->showMessage("Version 1.0.1");
+    ui->statusBar->showMessage("Version 1.0.2");
 }
 
 MW::~MW()
