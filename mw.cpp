@@ -35,7 +35,7 @@ void MW::on_start_clicked()
 {
     ui->start->setEnabled(false);
 
-    smSetDebugOutput( Low, stdout );//print some info from sm-functions
+    smSetDebugOutput( SMDebugLow, stdout );//print some info from sm-functions
     smSetTimeout(100);//make it faster by using shorter timeout
 
 
