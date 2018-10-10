@@ -1,6 +1,7 @@
 #include "mw.h"
 #include "ui_mw.h"
 #include <QFileDialog>
+#include <QDebug>
 
 MW::MW(QWidget *parent) :
     QMainWindow(parent),
@@ -91,7 +92,9 @@ int MW::installFirmware( int address )
 
         if(stat<0)
         {
-            log(QString("FW update failed, FirmwareUploadStatus %1").arg((int)stat),2,true);
+            char err[100];
+            smFirmwareUploadStatusToString(stat,err);
+            log(QString("FW update failed: %1 (%2)").arg(err).arg((int)stat),2,true);
             return 5;
         }
 
