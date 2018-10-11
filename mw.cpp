@@ -36,7 +36,7 @@ void MW::on_start_clicked()
 {
     ui->start->setEnabled(false);
 
-    smSetDebugOutput( SMDebugLow, stdout );//print some info from sm-functions
+    smSetDebugOutput( SMDebugHigh, stdout );//print some info from sm-functions
     smSetTimeout(100);//make it faster by using shorter timeout
 
 
@@ -94,7 +94,10 @@ int MW::installFirmware( int address )
         {
             char err[100];
             smFirmwareUploadStatusToString(stat,err);
-            log(QString("FW update failed: %1 (%2)").arg(err).arg((int)stat),2,true);
+            if(stat!=FWAlreadyInstalled)
+                log(QString("FW update failed: %1 (%2)").arg(err).arg((int)stat),2,true);
+            else
+                log(QString("FW update skipped: %1").arg(err).arg((int)stat),2);
             return 5;
         }
 
