@@ -11,7 +11,7 @@ MW::MW(QWidget *parent) :
     log("About: this app may be used for batch uploading firmware and settings to multiple drives in the SimpleMotion bus. Limitations: uploading firmware with this tool not yet supported on ARGON drives.");
     log("");
     log("Usage: fill in communication port name, select firmware and/or settings file, choose motor drive SimpleMotion bus address range where the files should be loaded, and click Start job.");
-    ui->statusBar->showMessage("Version 1.0.2");
+    ui->statusBar->showMessage("Version 1.1.0");
 }
 
 MW::~MW()
@@ -36,7 +36,7 @@ void MW::on_start_clicked()
 {
     ui->start->setEnabled(false);
 
-    smSetDebugOutput( SMDebugHigh, stdout );//print some info from sm-functions
+    smSetDebugOutput( SMDebugMid, stdout );//print some info from sm-functions
     smSetTimeout(100);//make it faster by using shorter timeout
 
 
@@ -56,8 +56,11 @@ void MW::on_start_clicked()
     {
         qApp->processEvents();//update UI
 
-        if(i==33)//skip 33-244
+        if(i==74)
+        {
+            log("Skipping address range 74-244 because no SM device currently can have address in that range");
             i=245;
+        }
 
         //test if drive is there
         smint32 dtype, busmode;
