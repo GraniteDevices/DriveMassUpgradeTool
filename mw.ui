@@ -30,6 +30,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="portName">
+         <property name="text">
+          <string/>
+         </property>
          <property name="placeholderText">
           <string>I.e. FTDI0 for all platforms, or serial port name like COM6 on Win or /dev/ttyUSB0 on Linux</string>
          </property>
@@ -59,6 +62,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="FWFileName">
+         <property name="text">
+          <string/>
+         </property>
          <property name="placeholderText">
           <string>&lt;empty = skip firmware install&gt;</string>
          </property>
@@ -88,6 +94,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="DRCFileName">
+         <property name="text">
+          <string/>
+         </property>
          <property name="placeholderText">
           <string>&lt;empty = skip settings install&gt;</string>
          </property>
@@ -138,7 +147,7 @@
           <number>255</number>
          </property>
          <property name="value">
-          <number>255</number>
+          <number>4</number>
          </property>
         </widget>
        </item>
@@ -179,7 +188,7 @@
      <x>0</x>
      <y>0</y>
      <width>459</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
