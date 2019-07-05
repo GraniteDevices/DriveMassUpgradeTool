@@ -119,7 +119,7 @@ int MW::loadConfiguration( int address )
     int skipped, errors;
     log(QString("Loading parameters on address %1").arg(address),1);
     LoadConfigurationStatus lcstat=smLoadConfiguration( bus, address, ui->DRCFileName->text().toLatin1(), 0, &skipped, &errors );
-    log(QString("Load parameters: status %1, skipped %2, set errors %3").arg((int)lcstat).arg(skipped).arg(errors),2 );
+    log(QString("Load parameters: status %1, skipped %2, set errors %3").arg(getLoadConfigurationStatusString(lcstat)).arg(skipped).arg(errors),2 );
 
     if(lcstat==CFGComplete && skipped==0 && errors ==0 )
     {
