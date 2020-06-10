@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>459</width>
+    <width>435</width>
     <height>736</height>
    </rect>
   </property>
@@ -46,8 +46,18 @@
       <property name="title">
        <string>Firmware file</string>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="FWFileName">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>&lt;empty = skip firmware install&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
         <widget class="QPushButton" name="chooseFWfile">
          <property name="minimumSize">
           <size>
@@ -60,13 +70,13 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QLineEdit" name="FWFileName">
-         <property name="text">
-          <string/>
+       <item row="1" column="0" colspan="2">
+        <widget class="QCheckBox" name="resetDriveSettings">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Checking this will erase drive settings to factory defaults before firmware will be installed. If Settings file is selected, then it will be uploaded after the erase.&lt;/p&gt;&lt;p&gt;- &lt;span style=&quot; font-weight:600;&quot;&gt;Untick this&lt;/span&gt; and &lt;span style=&quot; font-weight:600;&quot;&gt;Settings file&lt;/span&gt; empty if you wish to leave current settings in drive intact&lt;br/&gt;- &lt;span style=&quot; font-weight:600;&quot;&gt;Tick&lt;/span&gt; this and leave &lt;span style=&quot; font-weight:600;&quot;&gt;Settings file&lt;/span&gt; empty if you wish to reset drive in factory state&lt;br/&gt;- &lt;span style=&quot; font-weight:600;&quot;&gt;Tick &lt;/span&gt;this and choose &lt;span style=&quot; font-weight:600;&quot;&gt;Settings file&lt;/span&gt; if you wish to configure drive to a known state&lt;br/&gt;- &lt;span style=&quot; font-weight:600;&quot;&gt;Untick &lt;/span&gt;this and choose &lt;span style=&quot; font-weight:600;&quot;&gt;Settings file&lt;/span&gt; if you wish to upload new settings from .drc file and leave rest of the settings intact&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
-         <property name="placeholderText">
-          <string>&lt;empty = skip firmware install&gt;</string>
+         <property name="text">
+          <string>Clear drive settings to factory defaults upon firmware install</string>
          </property>
         </widget>
        </item>
@@ -78,8 +88,18 @@
       <property name="title">
        <string>Settings file</string>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="DRCFileName">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>&lt;empty = skip settings install&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
         <widget class="QPushButton" name="chooseSettingsFile">
          <property name="minimumSize">
           <size>
@@ -89,16 +109,6 @@
          </property>
          <property name="text">
           <string>Choose settings file</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="DRCFileName">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>&lt;empty = skip settings install&gt;</string>
          </property>
         </widget>
        </item>
@@ -187,8 +197,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>459</width>
-     <height>21</height>
+     <width>435</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>
@@ -196,15 +206,16 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>log</tabstop>
-  <tabstop>start</tabstop>
   <tabstop>portName</tabstop>
   <tabstop>chooseFWfile</tabstop>
   <tabstop>FWFileName</tabstop>
+  <tabstop>resetDriveSettings</tabstop>
   <tabstop>chooseSettingsFile</tabstop>
   <tabstop>DRCFileName</tabstop>
   <tabstop>startAddr</tabstop>
   <tabstop>endAddr</tabstop>
+  <tabstop>log</tabstop>
+  <tabstop>start</tabstop>
  </tabstops>
  <resources/>
  <connections/>
